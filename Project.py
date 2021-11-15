@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import json
 from requests import get
-import asyncio
+
 def getIP():
     print('loading..')
     ip = get('https://api.ipify.org').text
@@ -9,9 +9,9 @@ def getIP():
     res = json.loads(res)
     print(res)
     return res
-layout = [  [sg.Text('IP GeoLocation')],
-            [sg.Multiline(size=(30, 15), key='textbox')],
-            [sg.Button('Ok'), sg.Button('Cancel')] ]
+layout = [[sg.Text('IP GeoLocation')],
+          [sg.Multiline(size=(30, 15), key='textbox')],
+          [sg.Button('Ok'), sg.Button('Cancel')]]
 # Create the Window
 window = sg.Window('IP Locator', layout)
 # Event Loop to process "events" and get the "values" of the inputs
