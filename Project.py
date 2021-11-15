@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 import json
 from requests import get
 
+
 def getIP():
     print('loading..')
     ip = get('https://api.ipify.org').text
@@ -9,12 +10,11 @@ def getIP():
     res = json.loads(res)
     print(res)
     return res
-layout = [[sg.Text('IP GeoLocation')],
-          [sg.Multiline(size=(30, 15), key='textbox')],
-          [sg.Button('Ok'), sg.Button('Cancel')]]
-# Create the Window
+
+
+layout = [[sg.Text('IP GeoLocation')], [sg.Multiline(size=(30, 15), key='textbox')], [sg.Button('Ok'), sg.Button('Cancel')]]
 window = sg.Window('IP Locator', layout)
-# Event Loop to process "events" and get the "values" of the inputs
+
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Cancel': # if user closes window or clicks cancel
@@ -25,4 +25,3 @@ while True:
         window['textbox'].update(output)
         window['Ok'].update(disabled=True)
 window.close()
-
