@@ -4,7 +4,6 @@ from requests import get
 import asyncio
 def getIP():
     print('loading..')
-
     ip = get('https://api.ipify.org').text
     res = get('http://api.ipstack.com/'+ip+'?access_key=d19f6bf9beeb2919b685a14cd49a32a4&format=1').text
     res = json.loads(res)
@@ -25,9 +24,5 @@ while True:
         output = "IP address: {} \nIP Type: {}\nContinent: {} \nCountry: {} \nRegion Name: {}".format(res["ip"],res["type"],res["continent_name"],res["country_name"],res["region_name"])
         window['textbox'].update(output)
         window['Ok'].update(disabled=True)
-
-
-
-
 window.close()
 
