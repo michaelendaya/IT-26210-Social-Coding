@@ -21,7 +21,7 @@ while True:
         break
     if event == 'Ok':
         res = getIP()
-        output = "IP address: {} \nIP Type: {}\nContinent: {} \nCountry: {} \nRegion Name: {}".format(res["ip"],res["type"],res["continent_name"],res["country_name"],res["region_name"])
+        output = "IP address: {} \nIP Type: {}\nContinent: {} \nCountry: {} \nRegion Name: {} \n Longitude: {} \n Lattitute: {}".format(res["ip"],res["type"],res["continent_name"],res["country_name"],res["region_name"],res["longitude"],res['latitude'])
         window['textbox'].update(output)
         window['Ok'].update(disabled=True)
 window.close()
